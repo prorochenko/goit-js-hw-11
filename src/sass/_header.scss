@@ -1,0 +1,47 @@
+.header {
+  height: 100px;
+  background-color: #16993286;
+  background-size: cover;
+  border: 0px solid;
+  background-position: center;
+}
+.hero__container {
+  @extend %container;
+}
+
+input:focus {
+  outline: none;
+}
+.search-form__input {
+  width: 500px;
+  height: 50px;
+  padding: 12px 20px;
+  margin: 25px 0;
+  box-sizing: border-box;
+}
+
+.search-form__btn {
+  font-size: 21px;
+  margin-left: 20px;
+  padding: 10px 20px;
+  color: #2f2f37;
+  background-color: #e4e4e4;
+  cursor: pointer;
+  z-index: 1;
+  border: none;
+
+  &:hover {
+    transition: all 150ms linear;
+    opacity: 0.85;
+  }
+
+  &:active {
+    transition: all 150ms linear;
+    opacity: 0.75;
+  }
+
+  &:focus {
+    outline: 1px #959595;
+    outline-offset: -4px;
+  }
+}
