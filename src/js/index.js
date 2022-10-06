@@ -13,9 +13,9 @@ const galleryApi = new pixabayApi();
 refs.form.addEventListener('submit', onFormSubmit);
 refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 
-function onFormSubmit(e) {
-  e.preventDefault();
-  const query = e.target.elements.searchQuery.value;
+function onFormSubmit(evt) {
+  evt.preventDefault();
+  const query = evt.target.elements.searchQuery.value;
 
   galleryApi.currentPage = 1;
   galleryApi
@@ -37,14 +37,13 @@ function onFormSubmit(e) {
       addMarkupToGallery(data.hits);
       new SimpleLightbox('.gallery__largephoto');
     })
-    .catch(e => Notify.failure(e.message));
+    .catch(evt => Notify.failure(evt.message));
 }
 
 function onLoadMoreBtnClick() {
   galleryApi.currentPage += 1;
   galleryApi.getPictures().then(data => {
     addMarkupToGallery(data.hits);
-
     initScroll();
 
     if (galleryApi.currentPage * galleryApi.perPage > data.totalHits) {
@@ -78,8 +77,8 @@ function createMarkup(imgSmall, imgLarge, tag, like, view, comment, download) {
   return `<div class="gallery__card">
   <a class="gallery__largephoto" href="${imgLarge}">
   <div class="gallery__box">
-  <img src="${imgSmall}" alt="${tag}" width=100% loading="lazy"/>
-      </div>
+  <img class="gallery__img"src="${imgSmall}" alt="${tag}" loading="lazy"/>
+</div>
       </a>
       <div class="gallery__info">
         <p class="gallery__item">
