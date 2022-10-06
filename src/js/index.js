@@ -97,7 +97,6 @@ function createMarkup(imgSmall, imgLarge, tag, like, view, comment, download) {
     </div>`;
 }
 
-// ##### secondary fn
 function clearGallery(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
